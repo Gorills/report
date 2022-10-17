@@ -1,0 +1,290 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load thumbnail %}
+{% block title %}  {% endblock %}
+{% block description %} {% endblock %}
+{% block keywords %}  {% endblock %}
+{% block canonical %} {% url 'home' %}{% endblock %}
+{% block og:title %}{% endblock %}
+{% block og:description %}{% endblock %}
+{% block og:url %}{% url 'home' %}{% endblock %}
+{% block twitter:title %} {% endblock %}
+{% block twitter:description %}{% endblock %}
+{% block og:image %}
+   
+{% endblock %}
+
+
+{% block body %}
+
+<div class="wrapper">
+    <div class="page page--start">
+
+        <div class="page-title">
+
+            <div class="page-title__top">
+                <img src="{% static 'images/logo.png' %}" alt="" class="page-title__logo">
+
+
+                <div class="page-title__contacts">
+                    <p class="page-title__contacts-item"><b>Email:</b> avroratomsk70@yandex.ru</p>
+                    <p class="page-title__contacts-item"><b>Телефон:</b> +7 (3822) 94-04-24</p>
+                    <p class="page-title__contacts-item"><b>Сайт:</b> <a target="_blank" href="https://аврора-томск.рф">https://аврора-томск.рф</a></p>
+
+
+                </div>
+
+
+
+            </div>
+
+            <div class="page-title__title">Отчет о продвижении сайта <a href="{{ report.parent.get_link }}">{{ report.parent.get_link }}</a></div>
+
+            <div class="page-title__period">
+
+                <img src="{% static 'images/calendar.png' %}" alt="" class="page-title__period-icon">
+                <div class="page-title__period-text">
+                    Отчетный период с {{ report.start }} по {{ report.end }} <br>
+                   
+                </div>
+
+            </div>
+                
+
+
+
+        </div>
+
+
+
+
+    </div>
+    
+    
+   
+
+    {% for search in report.search.all %}
+
+    <div class="page" style="page-break-before:always;">
+        
+
+        <div class="nowrap" >
+            
+            <div class="page-table">
+
+                <table class="table tableToPrint">
+                    <tbody>
+                        <tr>
+
+                            <td class="table__title" colspan="{{ count }}"><p class="page__title">Позиции в поисковой системе {{ search.name }}</p></td>
+                        </tr>
+                        
+                        <tr>
+                            <th class="number">№</th>
+                            <th>Поисковая фраза</th>
+                            {% for dates in search.dates.all %}
+                            <th class="text-center positionDateCol">{{ dates.date }}</th>
+                            {% endfor %}
+                            
+
+                            {% comment %} <th class="text-center">Сравнение с первым месяцем</th> {% endcomment %}
+                        </tr>
+
+                    {% for gr in search.groups.all %}
+
+                    <tr class="">
+                        <td class="table__title" colspan="{{ count }}">{{ gr.name }}</td>
+                    </tr>
+
+                        {% for word in gr.words.all %}
+
+                            
+
+                            {% if word.last_null != 0 and word.last_null != 100 %}
+                                <tr class="">
+
+
+                                    <td class="number">{{ forloop.counter }}</td>
+
+                                    <td>
+                                        {{ word.name }}                                 
+                                    </td>
+                                    
+                                    {% for pos in word.positions.all %}
+
+                                    
+                                        {% if forloop.counter == 1 %}
+                                            {% if pos.pos == 100 %}
+                                                <td class="text-center">-</td>
+                                            {% else %}
+
+                                            
+                                                <td class="text-center">{% if pos.pos <= 10 %}<b>{{ pos.pos }}</b> {% else %} {{ pos.pos }}{% endif %}</td>
+                                            {% endif %}
+
+                                        {% else %}
+
+                                            {% if pos.pos == 100 %}
+                                                {% if pos.position_prev == 'False' %}
+                                                    <td class="text-center red">-</td>
+                                                {% elif pos.position_prev == 'True' %}
+                                                    <td class="text-center green">-</td>
+                                                {% elif pos.position_prev == 'None' %}
+                                                    <td class="text-center">-</td>
+                                                {% endif %}
+
+                                            {% else %}
+                                                {% if pos.position_prev == 'False' %}
+                                                    <td class="text-center red">
+                                                        {% if pos.pos <= 10 %}<b>{{ pos.pos }}</b> {% else %} {{ pos.pos }} {% endif %}
+                                                    </td>
+                                                {% elif pos.position_prev == 'True' %}
+                                                    <td class="text-center green">
+                                                        {% if pos.pos <= 10 %}<b>{{ pos.pos }}</b>{% else %} {{ pos.pos }} {% endif %}
+                                                    </td>
+                                                {% elif pos.position_prev == 'None' %}
+                                                    <td class="text-center">
+                                                        {% if pos.pos <= 10 %}<b>{{ pos.pos }}</b> {% else %} {{ pos.pos }} {% endif %}
+                                                    </td>
+                                                {% endif %}
+                                                
+                                            {% endif %}
+
+
+                                        {% endif %}
+                                    {% endfor %}
+                                    
+                                    {% comment %} <td class="text-center dynamic"><span style="color: red;">-2</span></td> {% endcomment %}
+                                </tr>
+                            {% endif %}
+
+                        {% endfor %}
+
+                    {% endfor %}
+                    
+                </tbody>
+            </table>
+
+            </div>
+
+        </div>
+
+        
+
+
+    </div>
+
+
+    {% endfor %}
+    <div class="page" style="page-break-before:always;">
+        {% include 'components/page-date.html' %}
+
+
+        <div class="nowrap">
+            <p class="page__title">Выполненные работы</p>
+            <div class="page-table">
+
+                <table class="table">
+                    <tbody><tr>
+                        <th class="number">№</th>
+                        <th class="text-center">Наименование работ                        </th>
+                        <th class="text-center positionDateCol">Дата                        </th>
+
+                        <th class="text-center positionDateCol">Время</th>
+
+                        
+                    </tr>
+                    
+                    {% for work in report.works.all %}
+                    <tr class="">
+                        <td class="number">{{ forloop.counter }}</td>
+                        <td>
+                        {{ work.name }}    
+                        </td>
+
+                        <td class="text-center">{{ work.date }} </td>
+
+                        <td class="text-center nowrap">{{ work.time }} </td>
+
+                        
+                    </tr>
+                    {% endfor %}
+                    <tr class="bold">
+                        
+
+                        <td class="text-end" colspan="3">Итого:</td>
+
+                        <td class="text-center nowrap">{{ hours }}</td>
+
+                        
+                    </tr>
+                    
+                    
+                </tbody>
+            </table>
+
+            </div>
+
+        </div>
+        {% if report.reks.count > 0 %}
+            <div class="nowrap">
+                <p class="page__title">Рекомендации на следующий период</p>
+                <div class="page-table">
+
+                    <table class="table">
+                        <tbody><tr>
+                            <th class="number">№</th>
+                            <th class="text-center">Наименование работ                        </th>
+                            
+                            
+                        </tr>
+                        
+                        {% for rek in report.reks.all %}
+                        <tr class="">
+                            <td class="number">{{ forloop.counter }}</td>
+                            <td>
+                            {{ rek.text }}    
+                            </td>
+
+                            
+                        </tr>
+                        {% endfor %}
+                        
+                        
+                        
+                    </tbody>
+                </table>
+
+                </div>
+
+            </div>
+
+        {% endif %}
+
+        
+        
+
+
+    </div>
+    {% if report.files.count > 0 %}
+    <div class="page-images">
+
+        <div class="">
+            <p class="page__title">Статистика</p>
+
+            {% for file in report.files.all %}
+                <img class="page__image" src="{{ file.file.url }}" alt="">
+            
+            {% endfor %}
+
+        </div>
+
+
+    </div>
+    {% endif %}
+
+    
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,188 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load thumbnail %}
+{% block title %}  {% endblock %}
+{% block description %} {% endblock %}
+{% block keywords %}  {% endblock %}
+{% block canonical %} {% url 'home' %}{% endblock %}
+{% block og:title %}{% endblock %}
+{% block og:description %}{% endblock %}
+{% block og:url %}{% url 'home' %}{% endblock %}
+{% block twitter:title %} {% endblock %}
+{% block twitter:description %}{% endblock %}
+{% block og:image %}
+   
+{% endblock %}
+
+
+{% block body %}
+
+
+
+
+{% include 'components/sidebar.html' %}
+
+<div class="home">
+    
+        <div class="home__inner">
+
+            <div class="settings">
+
+
+                <div class="settings__item">
+                    <p class="settings__title">Настройки</p>
+
+                    <form action="" class="settings__form">
+
+
+
+                        <button class="btn">Сохранить</button>
+
+
+                    </form>
+
+                </div>
+                <div class="settings__item">
+                    <p class="settings__title">Сформированные отчеты</p>
+
+                    {% for rep in project.reports.all %}
+
+                    <div class="settings__link">
+                        <a target="_blank" href="{{ rep.get_absolute_url }}">{{rep.date}}</a>
+
+                        <a class="settings__icon" href=""><i class="fas fa-pen"></i></a>
+                        
+                    
+                    </div>
+                    {% endfor %}
+
+                </div>
+
+
+
+
+            </div>
+
+
+
+            <div class="report-add">
+                <p class="report-add__title">Создать отчет</p>
+
+                <form action="." class="report-add__form" method="post" enctype="multipart/form-data">
+
+                    {% csrf_token %}
+
+                    <div class="report-add__dates">
+                        <div class="report-add__dates-item">
+                            <p class="report-add__label">Дата начала периода</p>
+                            <input class="report-add__input" type="date" name="start">
+                        </div>
+                        <div class="report-add__dates-item">
+                            <p class="report-add__label">Дата окончания периода</p>
+                            <input class="report-add__input" type="date" name="end">
+                        </div>
+                    </div>
+                    
+                    <div class="report-add__work">
+                        <p class="report-add__label">Выполненные работы</p>
+
+                            <div class="report-add__work-wrapper">
+                                <div class="report-add__work-item">
+                                    
+                                    <textarea class="report-add__input" name="work_name" id="" cols="30" rows="10" placeholder="Описание"></textarea>
+                                    <input class="report-add__input" type="date" name="work_date" placeholder="Дата">
+                                    <input type="text" class="report-add__input work-time" name="work_time" placeholder="Время">
+                                    
+
+                                </div>
+                            </div>
+                            <div class="report-add__work-clone">
+
+
+                            </div>
+
+                            <div class="report-add__work-bottom">
+                                <a href="#" class="report-add__work-plus">+</a>
+                                <a href="#" class="report-add__work-summ">$</a>
+                                <div class="report-add__work-itogo">Итого: <span id="#summ"><input type="text" class="sub_total"></span></div>
+
+                            </div>
+                            
+
+                    </div>
+                    <div class="report-add__work">
+
+
+                        <p class="report-add__label">Рекомендации на следующий период</p>
+
+                        <div class="report-add__rek-wrapper">
+                            <div class="report-add__rek-item">
+                                
+                                <textarea class="report-add__input" name="rek" id="" cols="30" rows="10" placeholder="Описание"></textarea>
+                                
+                            </div>
+                        </div>
+                        <div class="report-add__rek-clone">
+
+
+                        </div>
+
+                        <div class="report-add__rek-bottom">
+                            <a href="#" class="report-add__rek-plus">+</a>
+                            
+
+                        </div>
+                    
+
+                    </div>
+                    <div class="report-add__work">
+
+
+                        <p class="report-add__label">Изображения</p>
+
+                        <div class="report-add__file-wrapper">
+                            <div class="report-add__file-item">
+                                
+                                <input class="report-add__input" type="file" name="images" multiple>
+                                
+                                
+                            </div>
+                        </div>
+                        <div class="report-add__file-clone">
+
+
+                        </div>
+
+                        <div class="report-add__file-bottom">
+                            <a href="#" class="report-add__file-plus">+</a>
+                            
+
+                        </div>
+                    
+
+                    </div>
+
+
+                    <p class="report-add__label">Загрузить статистику слов Google</p>
+                    <input class="report-add__input" type="file" name="google">
+
+                    <p class="report-add__label">Загрузить статистику слов Yandex</p>
+                    <input class="report-add__input" type="file" name="yandex">
+
+                    <button class="btn">Создать</button>
+
+
+                </form>
+
+            </div>
+
+           
+
+
+        </div>
+    
+</div>
+
+
+
+{% endblock %}

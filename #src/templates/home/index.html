@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load thumbnail %}
+{% block title %}  {% endblock %}
+{% block description %} {% endblock %}
+{% block keywords %}  {% endblock %}
+{% block canonical %} {% url 'home' %}{% endblock %}
+{% block og:title %}{% endblock %}
+{% block og:description %}{% endblock %}
+{% block og:url %}{% url 'home' %}{% endblock %}
+{% block twitter:title %} {% endblock %}
+{% block twitter:description %}{% endblock %}
+{% block og:image %}
+   
+{% endblock %}
+
+
+{% block body %}
+
+{% include 'components/sidebar.html' %}
+
+<div class="home">
+    
+        <div class="home__inner">
+            
+
+            <div class="projects">
+
+                {% for pr in projects %}
+                <div class="projects__item">
+                    <a href="{{ pr.get_absolute_url }}" ><img src="{{ pr.logo }}" alt="">{{ pr.name }}</a>
+                    <a class="projects__remove" href="{% url 'delete' pr.id %}"><i class="fas fa-times"></i></a>
+                </div>
+                {% endfor %}
+
+                <a href="{% url 'add' %}" class="projects__item projects__item--plus">+</a>
+                
+            
+            </div>
+
+
+
+        </div>
+    
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,164 @@
+.report-add {
+    box-shadow: 0 1px 4px 0 rgb(0 0 0 / 14%);
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 6px;
+    // .report-add__title
+
+    &__title {
+        margin-bottom: 20px;
+        font-weight: 600;
+    }
+
+    // .report-add__form
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 650px;
+    }
+
+    // .report-add__label
+
+    &__label {
+        font-size: 12px;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+
+    // .report-add__input
+    &__input {
+        margin-bottom: 20px;
+    }
+
+    .btn {
+        width: fit-content;
+        
+    }
+
+    // .report-add__work
+
+    &__work {
+        margin-bottom: 40px;
+        margin-top: 40px;
+    }
+
+    // .report-add__work-item
+
+    &__work-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+    }
+     // .report-add__work-bottom
+
+     &__work-bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    // .report-add__work-plus
+
+    &__work-plus {
+        
+        width: 50px;
+        min-width: 50px;
+        height: 50px;
+        border-radius: 6px;
+        border: 1px solid #333;
+        width: fit-content;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        font-size: 20px;
+        color: #333;
+    }
+
+    // .report-add__work-itogo
+
+    &__work-itogo {
+        text-align: end;
+    }
+
+    // .report-add__input
+
+    &__input {
+        padding: 8px 15px;
+        border-radius: 6px;
+        border: 1px solid #333;
+        outline: none;
+        resize: none;
+
+    }
+
+    // .report-add__rek-wrapper
+
+    &__rek-wrapper {
+    }
+
+    // .report-add__rek-item
+
+    &__rek-item {
+    }
+
+    // .report-add__input
+
+    &__input {
+        
+    }
+
+    // .report-add__rek-clone
+
+    &__rek-clone {
+    }
+
+    // .report-add__rek-bottom
+
+    &__rek-bottom {
+    }
+
+    // .report-add__rek-plus
+    // .report-add__work-summ
+
+    &__work-summ {
+        margin-left: 20px;
+    }
+
+    &__rek-plus, &__file-plus, &__work-summ {
+        width: 50px;
+        min-width: 50px;
+        height: 50px;
+        border-radius: 6px;
+        border: 1px solid #333;
+        width: fit-content;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        font-size: 20px;
+        color: #333;
+        
+        
+    }
+
+    input[type="date"] {
+        max-width: 250px;
+    }
+
+    // .report-add__dates
+    &__dates {
+        display: flex;
+        width: 100%;
+        max-width: 400px;
+    }
+}
+
+
+
+
+    
+
+

@@ -1,0 +1,68 @@
+.page-title {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // .page-title__top
+
+    &__top {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 250px;
+    }
+
+    // .page-title__logo
+
+    &__logo {
+        width: 280px;
+    }
+
+    // .page-title__contacts
+
+    &__contacts {
+        width: fit-content;
+    }
+
+    // .page-title__contacts-item
+
+    &__contacts-item {
+        
+        a {
+            color: #333;
+            
+        }
+    }
+
+    // .page-title__title
+
+    &__title {
+        font-size: 35px;
+        margin-bottom: 150px;
+
+        a {
+            color: $primary;
+            white-space: nowrap;
+        }
+    }
+
+    // .page-title__period
+
+    &__period {
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+    }
+
+    // .page-title__period-icon
+
+    &__period-icon {
+        width: 50px;
+        margin-right: 20px;
+    }
+
+    // .page-title__period-text
+
+    &__period-text {
+    }
+}

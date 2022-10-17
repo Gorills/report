@@ -1,0 +1,21 @@
+.projects-add {
+    padding: 50px;
+    background-color: #fff;
+    width: fit-content;
+    // .projects-add__form
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    // .projects-add__input
+
+    &__input {
+        padding: 8px 15px;
+        border-radius: 7px;
+        border: 1px solid #333;
+        margin-bottom: 15px;
+        outline: none;
+    }
+}

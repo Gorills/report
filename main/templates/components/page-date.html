@@ -1,0 +1,15 @@
+
+{% load static %}
+<div class="header">
+
+
+    <div class="header__period">
+
+        <img src="{% static 'images/calendar.png' %}" alt="" class="header__period-icon">
+        <div class="header__period-text">
+            Отчетный период с {{ report.start }} по {{ report.end }} 
+          
+        </div>
+
+    </div>
+</div>

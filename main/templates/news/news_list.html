@@ -1,0 +1,142 @@
+{% extends 'base.html' %}
+
+{% block title %} Новости и полезные статьи | Рекламное агентство Аврора {% endblock %}
+{% block description %} Наш блог, в котором мы рассказываем о новинках в сфере продвижения бизнеса в интернете {% endblock %}
+{% block keywords %} {% endblock %}
+{% block canonical %} {% url 'news_list' %} {% endblock %}
+{% block og:title %} Новости и полезные статьи | Рекламное агентство Аврора  {% endblock %}
+{% block og:description %} Наш блог, в котором мы рассказываем о новинках в сфере продвижения бизнеса в интернете {% endblock %}
+{% block og:url %}{% url 'news_list' %} {% endblock %}
+{% block twitter:title %} Новости и полезные статьи | Рекламное агентство Аврора  {% endblock %}
+{% block twitter:description %} Наш блог, в котором мы рассказываем о новинках в сфере продвижения бизнеса в интернете {% endblock %}
+
+
+
+{% block body %}
+{% load static %}
+
+
+
+<div class="real">
+    <div class="container">
+        <div class="real__inner">
+            <div class="real__col">
+                <p class="real__mini">Интересно <br>
+                    полезно</p>
+
+            </div>
+            <div class="real__col">
+
+                <div class="real__big">
+                    <h2 class="title fullscreen__text animateIn">
+                        <span>Новости, </span><br>
+                        <span class="md-none">статьи </span><br>
+                        <span class="md-none">и полезная </span><br>
+                        <span class="md-none">информация</span>
+                                       
+                    </h2>
+
+
+
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+    
+    <video autoplay muted loop class="real__img">
+        <source src="{% static 'video/tech.mp4' %}">
+    </video>
+</div>
+
+
+
+
+<div class="top wrapper">
+    <div class="container">
+        <div class="top__inner inner">
+
+            <div class="breadcrumbs__inner">
+                <ul class="breadcrumbs__list" itemscope itemtype="https://schema.org/BreadcrumbList">
+                    <li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                        <a class="breadcrumbs__link" href="{% url 'home' %}" title="Главная" itemprop="item">
+                            <span itemprop="name">главная</span>
+                            <meta itemprop="position" content="0">
+                        </a>
+                    </li>
+                    <li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                        <a class="breadcrumbs__link" href="{% url 'news_list' %}" title="Статьи" itemprop="item">
+                            <span itemprop="name">статьи</span>
+                            <meta itemprop="position" content="1">
+                        </a>
+                    </li>
+                    {% if posts.number > 1 %}
+                    <li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                        <a class="breadcrumbs__link" href="{% url 'news_list' %}" title="Страница {{ posts.number }}" itemprop="item">
+                            <span itemprop="name">страница {{ posts.number }}</span>
+                            <meta itemprop="position" content="2">
+                        </a>
+                    </li>
+                    {% endif %}
+                </ul>
+    
+    
+            </div>
+            <div class="keys">
+
+                <h1 class="keys__title animateOut">
+                        <span>Полезные  </span><br>
+                        <span>статьи и</span><br>
+                        <span>новости</span>
+                        
+                        
+                </h1>
+
+                <div class="list">
+                    {% for post in posts %}
+                    <div class="list__item list__item--minus">
+                        <a href="{{ post.get_absolute_url }}" class="list__wrap list__wrap--link">
+                            <h2 class="list__title">{{ post.title }}</h2>
+                            <p class="list__data">{{ post.created }}</p>
+                            <p class="list__text">{{ post.desc }}</p>
+                            <img data-tilt data-tilt-max="10" data-tilt-speed="100" data-tilt-perspective="1500" src="{{ post.image.url }}" alt="{{ post.title }}" class="list__img">
+                        </a>
+
+                        
+
+                    </div>
+                    {% endfor %}
+
+                </div>
+                {% if posts.has_previous %}
+                <a href="?page={{ posts.previous_page_number }}" class="pagination__prev">
+                    <div class="pagination__inner"></div>
+                </a>
+               
+                {% endif %}
+                {% if posts.has_next %}
+                
+                <a href="?page={{ posts.next_page_number }}" class="pagination__next">
+                    <div class="pagination__inner"></div>
+
+                </a>
+            {% endif %}
+
+                
+                
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+{% endblock %}

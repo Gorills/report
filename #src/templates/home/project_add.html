@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load thumbnail %}
+{% block title %}  {% endblock %}
+{% block description %} {% endblock %}
+{% block keywords %}  {% endblock %}
+{% block canonical %} {% url 'home' %}{% endblock %}
+{% block og:title %}{% endblock %}
+{% block og:description %}{% endblock %}
+{% block og:url %}{% url 'home' %}{% endblock %}
+{% block twitter:title %} {% endblock %}
+{% block twitter:description %}{% endblock %}
+{% block og:image %}
+   
+{% endblock %}
+
+
+{% block body %}
+
+{% include 'components/sidebar.html' %}
+
+<div class="home">
+    
+        <div class="home__inner">
+            
+
+            <div class="projects-add">
+                <form action="." class="projects-add__form" method="post">
+                    {% csrf_token %}
+
+                    <input name="name" type="text" class="projects-add__input" placeholder="Название">
+                    <input name="link" type="text" class="projects-add__input" placeholder="Сслыка">
+
+                    <button class="btn">Добавить</button>
+
+                </form>
+                
+               
+            
+            </div>
+
+
+
+        </div>
+    
+</div>
+
+
+{% endblock %}

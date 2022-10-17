@@ -1,0 +1,75 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> {% block title %}{% endblock %}</title>
+    <meta name="description" content="{% block description %}{% endblock %}" />
+    <meta name="keywords" content="{% block keywords %}{% endblock %}" />
+    <link rel="canonical" href="{% block canonical %}{% endblock %}" />
+    <meta property="og:locale" content="ru_RU" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="{% block og:title %}{% endblock %} " />
+    <meta property="og:description" content="{% block og:description %}{% endblock %}" />
+    <meta property="og:url" content="{% block og:url %}{% endblock %}" />
+    {% block og:image %}{% endblock %}
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="{% block twitter:title %}{% endblock %}"  />
+    <meta name="twitter:description" content="{% block twitter:description %}{% endblock %}" />
+    <meta name="theme-color" content="#111111">
+    <meta property="og:site_name" content="Аврора" /> 
+    <link rel="shortcut icon" href="{% static 'fav/favicon.ico' %}" type="image/x-icon" />
+    <link rel="icon" href="{% static 'fav/favicon.svg' %}">
+    <link rel="apple-touch-icon" href="{% static 'fav/apple-touch-icon.png' %}" />
+    <link rel="apple-touch-icon" sizes="57x57" href="{% static 'fav/apple-touch-icon-57x57.png' %}" />
+    <link rel="apple-touch-icon" sizes="72x72" href="{% static 'fav/apple-touch-icon-72x72.png' %}" />
+    <link rel="apple-touch-icon" sizes="76x76" href="{% static 'fav/apple-touch-icon-76x76.png' %}" />
+    <link rel="apple-touch-icon" sizes="114x114" href="{% static 'fav/apple-touch-icon-114x114.png' %}" />
+    <link rel="apple-touch-icon" sizes="120x120" href="{% static 'fav/apple-touch-icon-120x120.png' %}" />
+    <link rel="apple-touch-icon" sizes="144x144" href="{% static 'fav/apple-touch-icon-144x144.png' %}" />
+    <link rel="apple-touch-icon" sizes="152x152" href="{% static 'fav/apple-touch-icon-152x152.png' %}" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'fav/apple-touch-icon-180x180.png' %}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'slick/slick.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'slick/slick-theme.css' %}"/>
+    <link href="{% static 'css/style.css' %}?{% now "H:i:s" %}" rel="stylesheet">
+    <script defer src="https://kit.fontawesome.com/0af96d350a.js" crossorigin="anonymous"></script>
+    
+    
+</head>
+
+<body>
+{% comment %} https://demos.creative-tim.com/material-dashboard-angular2/#/dashboard {% endcomment %}
+
+
+<div class="content">
+
+    {% block body %}
+    {% endblock %}
+
+
+
+</div>
+
+
+
+
+
+    <script defer src="{% static 'js/jquery.js' %}?v.1.0.0"></script>
+
+    <script defer src="{% static 'slick/slick.js' %}?v.1.0.0"></script>
+    <script defer src="{% static 'libs/scroll.js' %}?v.1.0.0"></script>
+    
+    <script defer src="{% static 'js/app.js' %}?{% now "H:i:s" %}"></script>
+    
+    
+
+</body>
+</html>
+

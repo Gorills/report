@@ -1,0 +1,20 @@
+{% load static %}
+
+<div class="sidebar">
+    <div class="sidebar__top">
+        <a href="{% url 'home' %}" class="sidebar__logo-link">
+            <img src="{% static 'images/logo.png' %}" alt="" class="sidebar__logo">
+        </a>
+    </div>
+    <div class="sidebar__inner">
+
+        <a href="{% url 'home' %}" class="sidebar__link sidebar__link--active"><i class="fas fa-home"></i> Dashboard</a>
+        <a href="#" class="sidebar__link"><i class="fas fa-tasks"></i>Проекты</a>
+        <a href="#" class="sidebar__link"><i class="fas fa-file"></i>Отчеты</a>
+        <a href="#" class="sidebar__link"><i class="fas fa-project-diagram"></i>Статистика</a>
+       
+    </div>
+    <img src="{% static 'images/sidebar.jpg' %}" alt="" class="sidebar__bg">
+
+    
+</div>

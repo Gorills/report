@@ -1,0 +1,4 @@
+PassengerEnabled On
+PassengerAppRoot /home/a/avroraweb/avrora-new.avroraweb.beget.tech/public_html/main/main
+PassengerPython /home/a/avroraweb/avrora-new.avroraweb.beget.tech/public_html/venv/bin/python
+

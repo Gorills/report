@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ post.title }} {% endblock %}
+{% block description %} {{ post.desc | truncatechars:250 }}{% endblock %}
+{% block keywords %} {% endblock %}
+{% block canonical %}{{ post.get_absolute_url }} {% url 'home' %} {% endblock %}
+{% block og:title %}{{ post.title }} {% endblock %}
+{% block og:description %} {{ post.desc | truncatechars:250 }} {% endblock %}
+{% block og:url %}{{ post.get_absolute_url }} {% endblock %}
+{% block twitter:title %} {{ post.title }}{% endblock %}
+{% block twitter:description %} {{ post.desc | truncatechars:250 }} {% endblock %}
+
+
+
+{% block body %}
+{% load static %}
+
+<div class="breadcrumbs breadcrumbs--mini">
+    <div class="container">
+        <div class="breadcrumbs__inner">
+            <ul class="breadcrumbs__list" itemscope itemtype="https://schema.org/BreadcrumbList">
+                <li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a class="breadcrumbs__link" href="{% url 'home' %}" title="Главная" itemprop="item">
+                        <span itemprop="name">главная</span>
+                        <meta itemprop="position" content="0">
+                    </a>
+                </li>
+                <li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a class="breadcrumbs__link" href="{% url 'news_list' %}" title="Статьи" itemprop="item">
+                        <span itemprop="name">статьи</span>
+                        <meta itemprop="position" content="1">
+                    </a>
+                </li>
+                <li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a class="breadcrumbs__link" href="{{ post.get_absolute_url }}" title="{{ post.title }}" itemprop="item">
+                        <span itemprop="name">{{ post.title | lower }}</span>
+                        <meta itemprop="position" content="2">
+                    </a>
+                </li>
+                
+            </ul>
+
+
+        </div>
+    </div>
+</div>
+
+
+<div class="top">
+    <div class="container">
+        <div class="top__inner">
+            <div class="news-detail">
+                <h1 class="title">{{ post.title }}</h1>
+
+                <div itemscope itemtype="https://schema.org/Article">
+                    <link itemprop="mainEntityOfPage" href="https://example.ru/" />
+                    <link itemprop="image" href="image">
+                    <meta itemprop="headline name" content="{{ post.title }}">
+                    <meta itemprop="description"
+                        content="{{ post.desc | truncatechars:150 }}">
+                    <meta itemprop="author" content="{{ post.author }}">
+
+                    <meta itemprop="datePublished" datetime="{{ post.created | date:'Y-m-d' }}" content="{{ post.created | date:'Y-m-d' }}">
+                    <meta itemprop="dateModified" datetime="{{ post.updated | date:'Y-m-d' }}" content="{{ post.updated | date:'Y-m-d' }}">
+                    <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+                        <div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+                            <img itemprop="url image" src="{% static 'images/logo-blue.png' %}" alt="Описание картинки" title="Описание картинки" style="display:none;"/>
+                        </div>
+                        <meta itemprop="name" content="Аврора">
+                        <meta itemprop="telephone" content="83822940424">
+                        <meta itemprop="address" content="Россия">
+                    </div>
+
+
+                    <div class="news-detail__inner">
+                        <img src="{{ post.big.url }}" alt="{{ post.title }}" class="news-detail__img">
+                        <p class="news-detail__intro">{{ post.desc }}</p>
+                        <span itemprop="articleBody" class="news-detail__body">
+                            {{ post.text | safe }}
+
+
+
+                        </span>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+{% endblock %}
