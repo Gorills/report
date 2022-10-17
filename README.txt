@@ -26,5 +26,5 @@ $ pip install <Module-name>
 Для перезапуска passenger в папке проекта достаточно выполнить команду touch на пустом файле restart.txt
 
 $ pwd
-touch /home/a/avroraweb/avrora-new.avroraweb.beget.tech/public_html/main/main/tmp/restart.txt
+touch /home/a/avroraweb/report.avroraweb.beget.tech/public_html/main/main/tmp/restart.txt
 $ touch restart.txt
