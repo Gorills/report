@@ -5,12 +5,12 @@ $ ssh localhost -p222
 hViHROuu!1
 
 для установки дополнительных модулей используйте pip
-сам Django располагается в папке /home/a/avroraweb/avrora-new.avroraweb.beget.tech/public_html/venv/
+сам Django располагается в папке /home/a/avroraweb/report.avroraweb.beget.tech/public_htm/venv/
 
 для начала надо переключиться на текущий virtualenv
 заходим в папку с проектом
 
-$ cd /home/a/avroraweb/avrora-new.avroraweb.beget.tech/public_html
+$ cd /home/a/avroraweb/report.avroraweb.beget.tech/public_htm
 $ source venv/bin/activate
 
 проверяем правильно ли определился путь до pip:

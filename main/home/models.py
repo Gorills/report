@@ -10,7 +10,7 @@ class Project(models.Model):
 
     name = models.CharField(max_length=200)
     slug = models.SlugField(unique=True)
-    link = models.CharField(max_length=200)
+    link = models.CharField(max_length=200, null=True, blank=True)
     logo = models.CharField(max_length=200)
     
     

@@ -48,41 +48,9 @@ def add(request):
         link = request.POST['link']
         slug = slugify(name)
         
-        if 'https://' not in link and 'http://' not in link:
-            link = 'https://' + link
+               
 
-        response = requests.get(link, headers=headers)
-
-
-        soup = BeautifulSoup(response.text, 'lxml')
-        try:
-            tag = soup.find("link", {"rel" : "icon"}).get('href')
-        except:
-            tag = soup.find("link", {"type" : "image/x-icon"}).get('href')
-
-
-        if tag[-1] == '/':
-            pass
-
-        else:
-            tag = '/' + tag
-            
-        tilda = 'https://static.tildacdn.com/'
-
-        
-        if link[-1] == '/' and tilda not in tag and 'https://' not in tag and 'http://' not in tag:
-
-            logo = link[:-1] + tag
-            
-        elif link[-1] != '/' and tilda not in tag and 'https://' not in tag and 'http://' not in tag:
-            logo = link + tag
-
-        else:
-            logo = tag
-
-        print(logo)
-
-        model = Project(name=name, link=link, slug=slug, logo=logo)
+        model = Project(name=name, link=link, slug=slug)
         model.save()
 
 
