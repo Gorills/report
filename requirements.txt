@@ -8,3 +8,4 @@ lxml
 django-ckeditor
 django-cleanup
 django-allauth
+pytils

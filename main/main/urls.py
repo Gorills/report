@@ -8,9 +8,10 @@ urlpatterns = [
    
     path('admin/', admin.site.urls),
     path('ckeditor/', include('ckeditor_uploader.urls')),
-    path('', include('home.urls')),
+    
     path('metrika/', include('metrika.urls')),
     path('seo/', include('seobrain.urls')),
+    path('', include('home.urls')),
     
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

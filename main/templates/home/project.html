@@ -32,11 +32,11 @@
                 <div class="settings__item">
                     <p class="settings__title">Настройки</p>
 
-                    <form action="" class="settings__form">
+                    <form action="{% url 'seo_update' project.id %}" class="settings__form" method="post">
 
+                        {% csrf_token %}
 
-
-                        <button class="btn">Сохранить</button>
+                        <button class="btn">Обновить ключевые слова</button>
 
 
                     </form>

@@ -26,6 +26,13 @@ class Project(models.Model):
         res = unquote(self.link, 'idna')
         
         return res
+
+
+
+class ProjectWords(models.Model):
+    id = models.CharField(primary_key=True, unique=True, max_length=250)
+    word = models.CharField(max_length=250)
+    parent = models.ForeignKey(Project, on_delete=models.CASCADE)
     
 
 
