@@ -118,7 +118,7 @@ def project_detail(request, slug):
        
         try:
             with open('google.csv', encoding='utf-8') as r_file:
-                file_reader = csv.reader(r_file, delimiter = ",")
+                file_reader = csv.reader(r_file, delimiter = ";")
                 count = 0
                 group_id = ''
                 search = SearchEngine(name='Google', parent=report)
