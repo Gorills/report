@@ -135,11 +135,11 @@
 
                                             {% else %}
                                                 {% if pos.position_prev == 'False' %}
-                                                    <td class="text-center {% if pos.pos <= 20 %}red{% endif %}">
+                                                    <td class="text-center {% if pos.pos <= 20 %}{% endif %}">
                                                         {% if pos.pos <= 10 %}<b>{{ pos.pos }}</b> {% else %} {{ pos.pos }} {% endif %}
                                                     </td>
                                                 {% elif pos.position_prev == 'True' %}
-                                                    <td class="text-center {% if pos.pos <= 20 %}green{% endif %}">
+                                                    <td class="text-center {% if pos.pos <= 20 %}{% endif %}">
                                                         {% if pos.pos <= 10 %}<b>{{ pos.pos }}</b>{% else %} {{ pos.pos }} {% endif %}
                                                     </td>
                                                 {% elif pos.position_prev == 'None' %}
