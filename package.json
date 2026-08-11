@@ -63,7 +63,7 @@
         "imagemin-webp": "^6.0.0",
         "imagemin-zopfli": "^7.0.0",
         "lint-staged": "^12.3.5",
-        "postcss": "^8.4.8",
+        "postcss": "^8.5.23",
         "postcss-scss": "^4.0.3",
         "require-dir": "^1.2.0",
         "sass": "^1.49.9",
