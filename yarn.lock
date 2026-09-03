@@ -8310,9 +8310,9 @@ bem-tools-create@bem-tools/bem-tools-create:
   linkType: hard
 
 "immutable@npm:^3":
-  version: 3.8.2
-  resolution: "immutable@npm:3.8.2"
-  checksum: 41909b386950ff84ca3cfca77c74cfc87d225a914e98e6c57996fa81a328da61a7c32216d6d5abad40f54747ffdc5c4b02b102e6ad1a504c1752efde8041f964
+  version: 3.8.4
+  resolution: "immutable@npm:3.8.4"
+  checksum: 28e645aac74e6c0f2e9767cdb729c3958410946099a65d4a2329ad1b7b2f73b9847990a08bbbe891a267e40e9621ff4831a3e834bbd39d97a9c4098dd25f0a7b
   languageName: node
   linkType: hard
 
